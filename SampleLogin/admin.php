@@ -6,19 +6,6 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit;
 }
-// // WILL NEED TO CHANGE
-// if($_SESSION["id"]==16)
-// {
-//    header('Location: admin.php');
-//    echo 'console.log("Admin Connected")';
-//    exit;
-// }
-
-// if($_SESSION["visitor"] == 'Y')
-// {
-//    header('Location: visitor.php');
-//    exit;
-// }
 
 ?>
 
@@ -27,20 +14,30 @@ if (!isset($_SESSION['loggedin'])) {
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>User Home</title>
+		<title>Admin Home</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1>User Home</h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+				<h1>Admin Home</h1>
+                <a href="Register.html"><i class="fas fa-plus-circle"></i>Register a User</a>
+                <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
 		<div class="content">
-			<p>Welcome back, <?=$_SESSION['name']?>!</p>
+            <h2>Admin Logged In</h2>
+            <p>Welcome back, <?=$_SESSION['name']?>!</p>
+            <br>
+            <form method="post" action="print.php">
+ <input type="submit" name ="fetch" value="Registered Users" />
+ </form>
+
+
+
+
+
 		</div>
 	</body>
 </html>

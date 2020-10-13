@@ -21,7 +21,7 @@ if ( !isset($_POST['username'], $_POST['password']) ) {
 
 
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+if ($stmt = $con->prepare('SELECT id, password, visitor FROM accounts WHERE username = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
 	$stmt->bind_param('s', $_POST['username']);
 	$stmt->execute();
@@ -30,7 +30,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
     
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $password);
+        $stmt->bind_result($id, $password, $visitor);
         $stmt->fetch();
         // Account exists, now we verify the password.
         // Note: remember to use password_hash in your registration file to store the hashed passwords.
@@ -41,14 +41,38 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['id'] = $id;
+            $_SESSION['visitor'] = $visitor;
+
+
+            // WILL NEED TO CHANGE
+        if($_SESSION["id"]==16)
+            {
+                header('Location: admin.php');
+   exit;
+}
+
+if($_SESSION["visitor"] == "Y")
+{
+   header('Location: visitor.php');
+   exit;
+}
+
             header('Location: home.php');
         } else {
             // Incorrect password
-            echo 'Incorrect username and/or password!';
+            // echo 'Incorrect username and/or password!';
+            echo "<script>
+	        alert('Incorrect username and/or password!');
+	        window.location.href='login.html';
+	        </script>";
         }
     } else {
         // Incorrect username
-        echo 'Incorrect username and/or password!';
+        // echo 'Incorrect username and/or password!';
+        echo "<script>
+	        alert('Incorrect username and/or password!');
+	        window.location.href='login.html';
+	        </script>";
     }
 
 	$stmt->close();

@@ -6,20 +6,6 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit;
 }
-// // WILL NEED TO CHANGE
-// if($_SESSION["id"]==16)
-// {
-//    header('Location: admin.php');
-//    echo 'console.log("Admin Connected")';
-//    exit;
-// }
-
-// if($_SESSION["visitor"] == 'Y')
-// {
-//    header('Location: visitor.php');
-//    exit;
-// }
-
 ?>
 
 
@@ -27,20 +13,19 @@ if (!isset($_SESSION['loggedin'])) {
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>User Home</title>
+		<title>Visitor Home</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1>User Home</h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+				<h1>Visitor Home</h1>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
 		<div class="content">
-			<p>Welcome back, <?=$_SESSION['name']?>!</p>
+            <p>Welcome back, <?=$_SESSION['name']?>!</p>
 		</div>
 	</body>
 </html>
