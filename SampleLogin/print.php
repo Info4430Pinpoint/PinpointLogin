@@ -33,7 +33,7 @@ if (!mysqli_select_db($connection, $DATABASE_NAME))
     die("Can't select database");
 
 // sending query
-$result = mysqli_query($connection, "SELECT `id`, `username`, `email`, `visitor` FROM {$table}");
+$result = mysqli_query($connection, "SELECT `id`, `username`, `email` FROM {$table}");
 if (!$result) {
     die("Query to show fields from table failed");
 } 

@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
+}
+
+if($_SESSION["id"]!=16)
+{
+   header('Location: home.php');
+   echo 'console.log("Admin Connected")';
+   exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,6 +25,14 @@
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
 	<body>
+	<nav class="navtop">
+			<div>
+				<h1>Register a User</h1>
+				<a href="admin.php"><i class="fas fa-home"></i>Home</a>
+				<a href="downloads.php"><i class="fas fa-download"></i>Downloads</a>
+                <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		</nav>
 		<div class="register">
 			<h1>Register</h1>
 			<form action="register.php" method="post" autocomplete="off">
@@ -22,10 +48,6 @@
 					<i class="fas fa-envelope"></i>
 				</label>
 				<input type="email" name="email" placeholder="Email" id="email" required>
-				<label for="visitor">
-					<i class="fas fa-user-clock"></i>
-				</label>
-				<input type="text" name="visitor" placeholder="visitor - Y/N" id="visitor" pattern="[YN]" required>
 				<input type="submit" value="Register">
 			</form>
 		</div>

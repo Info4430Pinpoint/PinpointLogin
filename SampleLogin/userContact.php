@@ -8,24 +8,29 @@ if (!isset($_SESSION['loggedin'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Visitor Home</title>
+		<title>Contact Us</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body class="loggedin">
+
 		<nav class="navtop">
 			<div>
-				<h1>Visitor Home</h1>
+                <h1>Contact Us</h1>
+                <a href="home.php"><i class="fas fa-home"></i>Home</a>
+				<a href="downloads.php"><i class="fas fa-download"></i>Downloads</a>
+				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
-		<div class="content">
-            <p>Welcome back, <?=$_SESSION['name']?>!</p>
+		<div class="cognito">
+<script src="https://www.cognitoforms.com/s/LiP7zdZOj0m2-6BMDXZMqQ"></script>
+<script>Cognito.load("forms", { id: "3" });</script>
+</div>
 		</div>
 	</body>
 </html>
