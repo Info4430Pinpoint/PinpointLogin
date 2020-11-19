@@ -56,6 +56,7 @@ $stmt->close();
 						<td><?=$email?></td>
 					</tr>
 				</table>
+				<a href="resetForm.html"><h1>Reset Password</h1></a>
 			</div>
 		</div>
 	</body>

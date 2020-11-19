@@ -22,12 +22,12 @@ if (mysqli_connect_errno()) {
 
 
 // Now we check if the data was submitted, isset() function will check if the data exists.
-if (!isset($_POST['username'], $_POST['password'], $_POST['email'])) {
+if (!isset($_POST['username'], $_POST['password'], $_POST['email'], $_POST['color'])) {
 	// Could not get the data that should have been sent.
 	exit('Please complete the registration form!');
 }
 // Make sure the submitted registration values are not empty.
-if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) ) {
+if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['color']) ) {
 	// One or more values are empty.
 	exit('Please complete the registration form');
 }
@@ -50,10 +50,10 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 	</script>";
 	} else {
 		// Username doesnt exists, insert new account
-if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email) VALUES (?, ?, ?)')) {
+if ($stmt = $con->prepare('INSERT INTO accounts (username, password, email, color) VALUES (?, ?, ?, ?)')) {
 	// We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
 	$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-	$stmt->bind_param('sss', $_POST['username'], $password, $_POST['email']);
+	$stmt->bind_param('ssss', $_POST['username'], $password, $_POST['email'], $_POST['color']);
     $stmt->execute();
     echo "<script>
 alert('Registration successfull, click OK to continue to the home page.');
