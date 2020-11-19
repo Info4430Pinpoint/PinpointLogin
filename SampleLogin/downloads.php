@@ -38,13 +38,17 @@ $handle = opendir('files');
 if($handle){
     while(($entry = readdir($handle)) !== false){
         if($entry != '.' && $entry != '..' && $entry != '.htaccess'){
-          echo "<button style=\"background-color:#8dc63f;color:white;text-align:center;margin:25px;
+          echo "<button style=\" background: url(fileThumb.png);
+          background-color:white;color:black;text-align:center;margin:25px;
           font-family: 'Roboto', sans-serif;
-          height:50px;border: none;cursor:pointer;
+          margin-left: 200px;
+          font-size: 20px; font-weight:bold;
+          width:356px; height:200px;border: none;cursor:pointer;
           \" 
-          onMouseOver=\"this.style.color='#25458d'\"
-          onMouseOut=\"this.style.color='white'\"
-          id=\"btn\" onclick=\"location.href='files/$entry'\">$entry</button>";
+          onMouseOver=\"this.style.color='#4CAF50'\"
+          onMouseOut=\"this.style.color='black'\"
+          id=\"btn\" onclick=\"location.href='files/$entry'\"><h4>$entry</h4></button> ";
+          
         }
     }
     closedir($handle);
