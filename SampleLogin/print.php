@@ -18,22 +18,19 @@
 
 
 <?php
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'phplogin';
+require_once "db.php";
 $table = 'accounts';
 
-$connection = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS);
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS);
 
-if (!$connection)
+if (!$con)
     die("Can't connect to database");
 
-if (!mysqli_select_db($connection, $DATABASE_NAME))
+if (!mysqli_select_db($con, $DATABASE_NAME))
     die("Can't select database");
 
 // sending query
-$result = mysqli_query($connection, "SELECT `id`, `username`, `email` FROM {$table}");
+$result = mysqli_query($con, "SELECT `id`, `username`, `email` FROM {$table}");
 if (!$result) {
     die("Query to show fields from table failed");
 } 
