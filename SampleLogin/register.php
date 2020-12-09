@@ -47,7 +47,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 		// echo 'Username exists, please choose another!';
 		echo "<script>
 	alert('Username exists, please choose another!');
-	window.location.href='login.html';
+	window.location.href='index.html';
 	</script>";
 	} else {
 		// Username doesnt exists, insert new account

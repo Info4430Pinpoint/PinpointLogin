@@ -60,7 +60,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
             // echo 'Incorrect username and/or password!';
             echo "<script>
 	        alert('Incorrect username and/or password!');
-	        window.location.href='login.html';
+	        window.location.href='index.html';
 	        </script>";
         }
     } else {
@@ -68,7 +68,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
         // echo 'Incorrect username and/or password!';
         echo "<script>
 	        alert('Incorrect username and/or password!');
-	        window.location.href='login.html';
+	        window.location.href='index.html';
 	        </script>";
     }
 
@@ -77,7 +77,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
     }else{
         echo "<script>
 	        alert('Capatcha Not Completed');
-	        window.location.href='login.html';
+	        window.location.href='index.html';
 	        </script>";
     }
     

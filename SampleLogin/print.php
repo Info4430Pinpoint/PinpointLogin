@@ -22,13 +22,13 @@ require_once "db.php";
 $table = 'accounts';
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: login.html');
+    header('Location: index.html');
     exit;
 }
 
 if($_SESSION["id"]!=1)
 {
-   header('Location: login.html');
+   header('Location: index.html');
    exit;
 }
 

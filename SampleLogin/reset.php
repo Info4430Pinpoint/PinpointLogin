@@ -59,7 +59,7 @@ $stmt->bind_param('ss', $password, $_POST['email']);
 $stmt->execute();
 echo "<script>
 alert('Reset successfull, click OK to continue to the login page.');
-window.location.href='login.html';
+window.location.href='index.html';
 </script>";
 $con->close();
 $stmt->close();
