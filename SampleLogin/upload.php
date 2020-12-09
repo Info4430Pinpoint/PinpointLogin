@@ -7,7 +7,7 @@ session_start();
         exit;
     }
     
-    if($_SESSION["id"]!=16)
+    if($_SESSION["id"]!=1)
     {
        header('Location: home.php');
        echo 'console.log("Admin Connected")';

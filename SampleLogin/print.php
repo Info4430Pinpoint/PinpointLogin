@@ -26,7 +26,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
-if($_SESSION["id"]!=16)
+if($_SESSION["id"]!=1)
 {
    header('Location: login.html');
    exit;

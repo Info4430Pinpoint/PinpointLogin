@@ -7,8 +7,8 @@ if (!isset($_SESSION['loggedin'])) {
 	exit;
 }
 
-// WILL NEED TO CHANGE
-if($_SESSION["id"]==16)
+
+if($_SESSION["id"]==1)
 {
    header('Location: admin.php');
    echo 'console.log("Admin Connected")';

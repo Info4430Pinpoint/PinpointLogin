@@ -46,8 +46,8 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
             $_SESSION['id'] = $id;
 
 
-            // WILL NEED TO CHANGE
-        if($_SESSION["id"]==16)
+
+        if($_SESSION["id"]==11)
             {
                 header('Location: admin.php');
    exit;
