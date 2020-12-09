@@ -20,6 +20,17 @@
 <?php
 require_once "db.php";
 $table = 'accounts';
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: login.html');
+    exit;
+}
+
+if($_SESSION["id"]!=16)
+{
+   header('Location: login.html');
+   exit;
+}
 
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS);
 
