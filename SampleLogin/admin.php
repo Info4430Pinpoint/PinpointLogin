@@ -39,9 +39,9 @@ if($_SESSION["id"]!=16)
             <h2>Admin Logged In</h2>
             <p>Welcome back, <?=$_SESSION['name']?>!</p>
             <br>
-            <form method="post" action="print.php">
+            <!-- <form method="post" action="print.php">
  <input type="submit" name ="fetch" value="Registered Users" />
- </form>
+ </form> -->
 
  <h2>Uplaod a new file</h2>
  <form action="upload.php" method="post" enctype="multipart/form-data">
